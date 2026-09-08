@@ -1,0 +1,28 @@
+[project]
+name = "ai-service"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "tayyabaliabid", email = "tayyab@cuddlynest.com" }
+]
+requires-python = ">=3.9"
+dependencies = [
+    "fastapi>=0.128.8",
+    "httpx>=0.28.1",
+    "pydantic>=2.13.5",
+    "typing-extensions>=4.16.0",
+    "uvicorn>=0.39.0",
+]
+
+[project.scripts]
+ai-service = "ai_service:main"
+
+[build-system]
+requires = ["uv_build>=0.12.9,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.2",
+]
