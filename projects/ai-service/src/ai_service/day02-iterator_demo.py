@@ -2,25 +2,13 @@ from fastapi import FastAPI
 from typing_extensions import TypedDict
 from pydantic import BaseModel
 from collections.abc import Iterable, Sequence
+import time
 
 app = FastAPI()
-class chatRequest(BaseModel):
-    message: str
-    temprature: float = 0.7
-
 
 @app.get("/health")
 async def health():
     return {"status": "ok"}
-
-@app.post("/chat")
-async def chat(request: chatRequest):
-    return {
-        "message": request.message,
-        "message_length": len(request.message),
-        "temprature": request.temprature,
-        "status": "received"        
-    }
 
 def iterable(items: Iterable[str]):
     iterator = iter(items)
